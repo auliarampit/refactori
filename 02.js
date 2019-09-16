@@ -1,26 +1,33 @@
 const axios = require('axios')
 
 const URL = 'https://jsonplaceholder.typicode.com'
-let resultPost = []
-let resultUser = []
-let finalResult = []
+let post = []
+let user = []
+let final= []
 
 axiosPost = () => {
     return axios.get(`${URL}/posts`).then(response => {
-        resultPost.push(response.data)
-        console.log('post', resultPost)
+        post.push(response.data)
+        console.log('post', post)
     })
 }
+
+axiosPost().then(data => {
+    
+})
 
 axiosUsers = () => {
     return axios.get(`${URL}/users`).then(response => {
-        resultUser.push(response.data)
-        console.log('user', resultUser)
-        // return response.data
+        user.push(response.data)
+        console.log('user', user)
     })
 }
 
+axiosUsers().then(data => {
+    
+})
+
 concatUser = () => {
-    finalResult = resultUser.concat(resultPost)
-    console.log(finalResult)
+    final= user.concat(post)
+    console.log(final)
 }
