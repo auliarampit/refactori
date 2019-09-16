@@ -82,12 +82,18 @@ isi.map((data)=>{
 console.log()
 console.log('total harga dari pembelian yang dilakukan oleh Ari ',total)
 
+//------------------------------------------------------------------------------------------------------
+
 //Bagian 3 
-var user = []
-isi.map((data) => {
-    if(data.items.price < '300000') {
-            user.push(data)            
+var sortBuy = []
+isi.map((item) => {
+    var sum = 0
+    item.items.map((sumItem) => {
+        sum += sumItem.qty * sumItem.price
+    })
+    if (sum < 300000) {
+        sortBuy.push(item)
     }
 })
 console.log()
-console.log('orang yang pembelian dibawah 300000 ',user)
+console.log('Pembelian di bawah Rp. 300.000', sortBuy)
